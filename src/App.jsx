@@ -26,11 +26,14 @@ export default function App() {
     <>
       <div className="w-full h-screen">
         <NavigationBar />
+        <main className="px-8">
+
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/addexpense" element={<AddExpense />} />
           <Route path="/transactions" element={<Transactions />} />
         </Routes>
+        </main>
       </div>
     </>
   );

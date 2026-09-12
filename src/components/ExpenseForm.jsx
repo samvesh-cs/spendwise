@@ -2,14 +2,15 @@ import { useContext, useState } from "react";
 import { ExpenseDataContext } from "../context/ExpenseDataContext";
 export default function ExpenseForm() {
   const initialExpense = {
+    id: "",
+    description: "",
     amount: "",
     category: "",
-    description: "",
     date: "",
     payment: "",
   };
-  const [expense, setExpense] = useState(initialExpense);
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
+  const [expense, setExpense] = useState(initialExpense);
   console.log(expenseData);
 
   function handleChange(e) {
@@ -20,28 +21,29 @@ export default function ExpenseForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const newExpenses = [...expenseData, expense];
+    const newExpense = { ...expense, id: Date.now() };
+    const newExpenses = [...expenseData, newExpense];
     setExpenseData(newExpenses);
     setExpense(initialExpense);
   }
 
   console.log(expense);
   return (
-    <div className="flex justify-center align-center w-2/5 ">
+    <div className="grid grid-cols-1  px-8 py-5 md:w-2/5 rounded-4xl bg-[#14141A] border border-gray-800 grow">
       <form
-        className="flex flex-col px-10 py-5  bg-[#14141A] rounded-xl border border-gray-800"
+        className="flex flex-col w-full"
         onSubmit={(e) => {
           handleSubmit(e);
         }}
       >
-        <h1 className="text-4xl font-bold mb-2 text-white">
+        <h1 className="text-4xl font-bold mb-4 text-white">
           Add <span className="text-red-400">Expenses</span>
         </h1>
         <label className="text-sm mb-1" htmlFor="amount">
           AMOUNT
         </label>
 
-        <div className="flex items-center outline-2 bg-[#0B0B0E] outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3">
+        <div className="flex items-center outline-2 bg-[#0B0B0E] outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4">
           <i className="ri-money-rupee-circle-line  mr-2 text-xl"></i>
           <input
             className=" outline-none w-full"
@@ -59,7 +61,7 @@ export default function ExpenseForm() {
           DESCRIPTION
         </label>
         <textarea
-          className="outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3"
+          className="outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4"
           name="description"
           value={expense.description}
           placeholder="What Did You Spend On?"
@@ -70,7 +72,7 @@ export default function ExpenseForm() {
           CATEGORY{" "}
         </label>
         <select
-          className=" outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3 appearance-none"
+          className=" outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
           value={expense.category}
           name="category"
           onChange={(e) => handleChange(e)}
@@ -86,14 +88,14 @@ export default function ExpenseForm() {
           <option value="Other">Other</option>
         </select>
 
-        <div className="flex align-center gap-5">
-          <div className="flex flex-col w-[50%]">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-5">
+          <div className="flex flex-col md:w-[50%] ">
             <label className="text-sm mb-1" htmlFor="date">
               DATE
             </label>
             <input
               required
-              className="outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3 appearance-none"
+              className="outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
               value={expense.date}
               type="date"
               name="date"
@@ -101,13 +103,13 @@ export default function ExpenseForm() {
             />
           </div>
 
-          <div className="flex flex-col  w-[50%]">
+          <div className="flex flex-col  md:w-[50%]">
             <label className="text-sm mb-1" htmlFor="payment">
               PAYMENT METHOD
             </label>
             <select
               required
-              className=" outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3 appearance-none"
+              className=" outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
               name="payment"
               value={expense.payment}
               onChange={(e) => handleChange(e)}
