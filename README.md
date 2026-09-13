@@ -6,7 +6,7 @@ SpendWise allows users to add, edit, delete, search, and filter expenses through
 
 ## Live Demo
 
-[View Live Demo](https://expense-tracker-cg90bov6q-samvesh-cs-projects.vercel.app/)
+[View Live Demo](https://expense-tracker-pied-six-82.vercel.app/)
 
 ## Features
 
