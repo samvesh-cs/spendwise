@@ -61,8 +61,8 @@ export default function List() {
   const ListRows = ({ data }) => {
     if (expenseData.length === 0) {
       return (
-        <div className="flex justify-center items-center mt-25  ">
-          <h1 className="text-4xl font-semibold">No Expenses</h1>
+        <div className="flex justify-center items-center mt-25 dark: ">
+          <h1 className="text-4xl font-semibold dark:text-gray-500">No Expenses</h1>
         </div>
       );
     }
