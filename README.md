@@ -4,18 +4,36 @@ A modern and responsive expense tracking application built with React and Tailwi
 
 SpendWise allows users to add, edit, delete, search, and filter expenses through a simple dashboard.
 
+## Live Demo
+
+[View Live Demo](https://expense-tracker-cg90bov6q-samvesh-cs-projects.vercel.app/)
+
 ## Features
 
 * Add, edit, and delete expenses
 * Track expense amount, category, date, and payment method
 * Search expenses by description, category, or date
 * Filter expenses by category and date
-* View total spending
-* View current month spending
-* View total number of expenses
+* View total spending, current month spending, and total number of expenses
 * Dark and light mode
-* Responsive design
-* Multiple pages using React Router
+
+## Screenshots
+
+### Overview
+
+![SpendWise Overview](./screenshots/overview.png)
+
+### Transactions
+
+![SpendWise Transactions](./screenshots/transactions.png)
+
+### Add Expense
+
+![SpendWise Add Expense](./screenshots/add-expense.png)
+
+### Dark Mode
+
+![SpendWise Dark Mode](./screenshots/dark-mode.png)
 
 ## Tech Stack
 
@@ -23,33 +41,41 @@ SpendWise allows users to add, edit, delete, search, and filter expenses through
 * JavaScript
 * Tailwind CSS
 * React Router
-* Context API
-* Remix Icon
 
 ## Project Structure
 
 ```text
-src/
-├── components/
-│   ├── EditingForm.jsx
-│   ├── ExpenseForm.jsx
-│   ├── ExpenseList.jsx
-│   ├── List.jsx
-│   ├── NavigationBar.jsx
-│   └── SummaryCard.jsx
+expense-tracker/
+├── node_modules/
+├── src/
+│   ├── components/
+│   │   ├── EditingForm.jsx
+│   │   ├── ExpenseForm.jsx
+│   │   ├── ExpenseList.jsx
+│   │   ├── List.jsx
+│   │   ├── NavigationBar.jsx
+│   │   └── SummaryCard.jsx
+│   │
+│   ├── context/
+│   │   ├── ExpenseDataContext.jsx
+│   │   └── ThemeContext.jsx
+│   │
+│   ├── pages/
+│   │   ├── AddExpense.jsx
+│   │   ├── Overview.jsx
+│   │   └── Transactions.jsx
+│   │
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
 │
-├── pages/
-│   ├── AddExpense.jsx
-│   ├── Overview.jsx
-│   └── Transactions.jsx
-│
-├── context/
-│   ├── ExpenseDataContext.jsx
-│   └── ThemeContext.jsx
-│
-├── App.jsx
-├── main.jsx
-└── index.css
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
 ```
 
 ## Getting Started

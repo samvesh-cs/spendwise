@@ -1,4 +1,3 @@
-import ExpenseList from "../components/ExpenseList";
 import List from "../components/List";
 
 export default function Transactions() {

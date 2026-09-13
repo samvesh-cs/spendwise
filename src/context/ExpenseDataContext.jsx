@@ -4,7 +4,7 @@ export const ExpenseDataContext = createContext();
 
 export function ExpenseDataContextProvider({ children }) {
   const [expenseData, setExpenseData] = useState(
-    JSON.parse(localStorage.getItem("expenseData")) || [],
+    JSON.parse(localStorage.getItem("expenseData")) ||  []
   );
   function saveData() {
     localStorage.setItem("expenseData", JSON.stringify(expenseData));

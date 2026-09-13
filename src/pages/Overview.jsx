@@ -5,37 +5,32 @@ import SummaryCard from "../components/SummaryCard";
 import { ExpenseDataContext } from "../context/ExpenseDataContext";
 
 export default function Overview() {
-  const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
-  console.log(expenseData);
+  const { expenseData } = useContext(ExpenseDataContext);
 
   const totalSpending = () => {
-    let total = 0;
-    if (expenseData.length == 0) {
-      return "₹" + 0;
-    }
-    expenseData.map((expense) => (total = total + Number(expense.amount)));
+    let total = expenseData.reduce(
+      (total, expense) => total + Number(expense.amount),
+      0,
+    );
     return "₹" + total.toLocaleString();
   };
 
   const currentMonthSpending = () => {
-    let total = 0;
     const currentMonth = new Date().getMonth() + 1;
     const currentYear = new Date().getFullYear();
 
-
     const currentMonthExpenses = expenseData.filter((expense) => {
-      const dateArray = expense.date.split("-");
-      const expenseMonth = Number(dateArray[1]);
-      const expenseYear = Number(dateArray[0]);
-      
-      
-      return expenseYear == currentYear && expenseMonth === currentMonth ;
+      const date = new Date(expense.date);
+
+      return (
+        date.getFullYear() == currentYear &&
+        date.getMonth() + 1 === currentMonth
+      );
     });
-    if (currentMonthExpenses.length == 0) {
-      return "₹" + 0;
-    }
-    currentMonthExpenses.map(
-      (expense) => (total = total + Number(expense.amount)),
+
+    let total = currentMonthExpenses.reduce(
+      (total, expense) => total + Number(expense.amount),
+      0,
     );
 
     return "₹" + total.toLocaleString();
@@ -46,21 +41,19 @@ export default function Overview() {
   };
 
   return (
-    <>
-      <div>
-        <div className="grid md:grid-cols-3 gap-6">
-          <SummaryCard text={"TOTAL SPENDING"} info={totalSpending()} />
-          <SummaryCard
-            text={"SPENDING THIS MONTH"}
-            info={currentMonthSpending()}
-          />
-          <SummaryCard text={"NUMBER OF EXPENSES"} info={numberOfExpenses()} />
-        </div>
-        <div className="flex gap-6 mt-5 md:flex-row flex-col   ">
-          <ExpenseForm />
-          <ExpenseList />
-        </div>
+    <div>
+      <div className="grid md:grid-cols-3 gap-6">
+        <SummaryCard text={"TOTAL SPENDING"} info={totalSpending()} />
+        <SummaryCard
+          text={"SPENDING THIS MONTH"}
+          info={currentMonthSpending()}
+        />
+        <SummaryCard text={"NUMBER OF EXPENSES"} info={numberOfExpenses()} />
       </div>
-    </>
+      <div className="flex gap-6 mt-5 md:flex-row flex-col   ">
+        <ExpenseForm />
+        <ExpenseList />
+      </div>
+    </div>
   );
 }

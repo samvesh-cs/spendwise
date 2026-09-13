@@ -39,8 +39,8 @@ export default function EditingForm({ editingExpense, setEditingExpense }) {
           AMOUNT
         </label>
 
-         <div className="flex items-center outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4">
-       <i className="ri-money-rupee-circle-line text-red-500  mr-2 text-xl"></i>
+        <div className="flex items-center outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4">
+          <i className="ri-money-rupee-circle-line text-red-500  mr-2 text-xl"></i>
           <input
             className=" outline-none w-full"
             type="number"
@@ -53,21 +53,21 @@ export default function EditingForm({ editingExpense, setEditingExpense }) {
           />
         </div>
 
-      <label
+        <label
           className="text-sm mb-1 text-[#18181B] dark:text-white"
           htmlFor="description"
         >
           DESCRIPTION
         </label>
         <textarea
-           className="outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 overflow-hidden"
+          className="outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 overflow-hidden"
           name="description"
           placeholder="What Did You Spend On?"
           onChange={(e) => handleChange(e)}
           value={editingExpense.description}
         ></textarea>
 
-         <label
+        <label
           className="text-sm mb-1 text-[#18181B] dark:text-white"
           htmlFor="category"
         >
@@ -100,7 +100,7 @@ export default function EditingForm({ editingExpense, setEditingExpense }) {
             </label>
             <input
               required
-                className="outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
+              className="outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
               type="date"
               name="date"
               value={editingExpense.date}
@@ -118,7 +118,7 @@ export default function EditingForm({ editingExpense, setEditingExpense }) {
             <select
               required
               name="payment"
-             className=" outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
+              className=" outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
               value={editingExpense.payment}
               onChange={(e) => handleChange(e)}
             >
@@ -132,7 +132,7 @@ export default function EditingForm({ editingExpense, setEditingExpense }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <button
             type="submit"
-             className="border border-gray-500 dark:border-gray-800 bg-red-500 hover:bg-red-500/80 text-white font-semibold outline-none h-12 px-4 py-2 rounded-full mt-4 transition-all duration-200"
+            className="border border-gray-500 dark:border-gray-800 bg-red-500 hover:bg-red-500/80 text-white font-semibold outline-none h-12 px-4 py-2 rounded-full mt-4 transition-all duration-200"
           >
             <i className="ri-pencil-fill text-xl "></i> UPDATE
           </button>

@@ -21,17 +21,15 @@ export default function App() {
   }, [theme]);
 
   return (
-    <>
-      <div className="w-full h-screen dark:bg-[#0B0B0E] bg-[#F5F5F7]">
-        <NavigationBar />
-        <main className="px-4 md:px-8 pt-20">
-          <Routes>
-            <Route path="/" element={<Overview />} />
-            <Route path="/addexpense" element={<AddExpense />} />
-            <Route path="/transactions" element={<Transactions />} />
-          </Routes>
-        </main>
-      </div>
-    </>
+    <div className="w-full h-screen dark:bg-[#0B0B0E] bg-[#F5F5F7]">
+      <NavigationBar />
+      <main className="px-4 md:px-8 pt-20">
+        <Routes>
+          <Route path="/" element={<Overview />} />
+          <Route path="/addexpense" element={<AddExpense />} />
+          <Route path="/transactions" element={<Transactions />} />
+        </Routes>
+      </main>
+    </div>
   );
 }

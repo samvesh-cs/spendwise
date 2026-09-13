@@ -11,7 +11,6 @@ export default function ExpenseForm() {
   };
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
   const [expense, setExpense] = useState(initialExpense);
-  console.log(expenseData);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -27,7 +26,6 @@ export default function ExpenseForm() {
     setExpense(initialExpense);
   }
 
-  console.log(expense);
   return (
     <div className="grid grid-cols-1  px-8 py-5 md:w-2/5 rounded-4xl dark:bg-[#14141A] dark:border-gray-800 bg-[#FFFFFF] border border-gray-200 grow shadow-md">
       <form

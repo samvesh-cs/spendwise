@@ -33,26 +33,14 @@ export default function List() {
         return <i className="ri-tv-2-line"></i>;
       case "education":
         return <i className="ri-graduation-cap-fill"></i>;
-      case "others":
+      case "other":
         return <i className="ri-puzzle-2-fill"></i>;
     }
   };
 
   const handleEdit = (id) => {
-    expenseData.forEach((expense) => {
-      if (expense.id == id) {
-        console.log(id);
-        setEditingExpense({
-          id: expense.id,
-          description: expense.description,
-          amount: expense.amount,
-          category: expense.category,
-          date: expense.date,
-          payment: expense.payment,
-        });
-      }
-    });
-    console.log(editingExpense);
+    const expense = expenseData.find((expense) => expense.id === id);
+    setEditingExpense(expense);
   };
 
   const handleDelete = (id) => {
