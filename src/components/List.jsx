@@ -8,7 +8,7 @@ export default function List() {
   const [editingExpense, setEditingExpense] = useState(null);
   const ListHeader = () => {
     return (
-      <div className="grid grid-cols-[2fr_1fr_1fr_1fr_0.6fr]  text-gray-400 font-semibold pb-2 text-xs ">
+      <div className="grid grid-cols-[2fr_1fr_1fr_1fr_0.6fr] text-[#52525B]  dark:text-gray-400 font-semibold pb-2 text-xs ">
         <div>EXPENSE NAME</div>
         <div>AMOUNT</div>
         <div> CATEGORY</div>
@@ -82,7 +82,7 @@ export default function List() {
     return data.map((expense) => (
       <div
         key={expense.id}
-        className="grid md:grid-cols-[2fr_1fr_1fr_1fr_0.6fr] grid-cols-[1fr_0.5fr_0.5fr_0.5fr_0.3fr]  text-white font-medium py-2 overflow-y-auto max-h-100"
+        className="grid grid-cols-[2fr_1fr_1fr_1fr_0.6fr]  text-black  dark:text-white font-medium py-2 overflow-y-auto max-h-100"
       >
         <div className="flex gap-2 items-center capitalize">
           <div className="bg-red-500/50 border border-red-500 h-8 rounded-full w-8 flex items-center justify-center p-4 text-xl ">
@@ -94,7 +94,7 @@ export default function List() {
         <div> {expense.category} </div>
         <div> {expense.date} </div>
         <div>
-          <div className="flex gap-2 text-gray-400 text-2xl">
+          <div className="flex gap-2 text-gray-600 dark:text-gray-400 text-2xl">
             <button onClick={() => handleEdit(expense.id)}>
               <i className="ri-pencil-fill "></i>
             </button>
@@ -119,8 +119,8 @@ export default function List() {
       )}
       {/* search and filter */}
       <div className="md:grid grid-cols-1 md:grid-cols-3 gap-3">
-        <div className="flex items-center outline-2 bg-[#0B0B0E] outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3  overflow-hidden">
-          <i className="ri-search-line mr-1 text-xl"></i>
+        <div className=" dark:bg-[#0B0B0E] border-gray-400 border-2 dark:border-gray-800 text-red-400  h-10 px-4 py-1 rounded-full mb-4 overflow-hidden">
+          <i className="ri-search-line mr-1 text-xl text-red-400 "></i>
           <input
             className="outline-none"
             type="text"
@@ -132,7 +132,8 @@ export default function List() {
         </div>
 
         <select
-          className=" outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3 appearance-none"
+          className=" dark:bg-[#0B0B0E]
+           text-red-400  h-10 px-4 py-2 rounded-full mb-4 appearance-none outline-none border-2 dark:border-gray-800"
           name="category"
           onChange={(e) => setQuery(e.target.value)}
           required
@@ -149,7 +150,7 @@ export default function List() {
 
         <input
           required
-          className="outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3 appearance-none"
+          className="outline-none border-gray-400 text-red-400   h-10 px-4 py-2 rounded-full mb-4 appearance-none border-2 dark:border-gray-800"
           type="date"
           name="date"
           onChange={(e) => setQuery(e.target.value)}

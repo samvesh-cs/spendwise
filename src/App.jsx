@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <div className="w-full h-screen">
+      <div className="w-full h-screen dark:bg-[#0B0B0E] bg-[#F5F5F7]">
         <NavigationBar />
         <main className="px-4 md:px-8 pt-20">
           <Routes>

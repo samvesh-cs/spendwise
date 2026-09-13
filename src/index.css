@@ -1,13 +1,6 @@
 @import "tailwindcss";
-body{
-    background-color: #15080d;
-    color:#ef4444;
-    font-family: "Plus Jakarta Sans", sans-serif;
-}
-label{
-    color: white;
-}
-input,textarea,select{
-    background-color: #0B0B0E;
-    color:gray
+@variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
