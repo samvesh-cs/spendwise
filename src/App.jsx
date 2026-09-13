@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import NavigationBar from "./components/NavigationBar";
 import Overview from "./pages/Overview";
 import AddExpense from "./pages/AddExpense";
@@ -24,7 +24,7 @@ export default function App() {
     <>
       <div className="w-full h-screen">
         <NavigationBar />
-        <main className="px-8">
+        <main className="px-4 md:px-8 pt-20">
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/addexpense" element={<AddExpense />} />

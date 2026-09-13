@@ -1,13 +1,11 @@
 import { useContext, useState } from "react";
 import { ExpenseDataContext } from "../context/ExpenseDataContext";
+import EditingForm from "./EditingForm";
 
 export default function List() {
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
   const [query, setQuery] = useState("");
-  const [desc, setDesc] = useState("");
-  const [date, setDate] = useState("");
-  const [category, setCategory] = useState("");
-
+  const [editingExpense, setEditingExpense] = useState(null);
   const ListHeader = () => {
     return (
       <div className="grid grid-cols-[2fr_1fr_1fr_1fr_0.6fr]  text-gray-400 font-semibold pb-2 text-xs ">
@@ -41,14 +39,26 @@ export default function List() {
   };
 
   const handleEdit = (id) => {
-    console.log(id);
+    expenseData.map((expense) => {
+      if (expense.id == id) {
+        console.log(id);
+        setEditingExpense({
+          id: expense.id,
+          description: expense.description,
+          amount: expense.amount,
+          category: expense.category,
+          date: expense.date,
+          payment: expense.payment,
+        });
+      }
+    });
+    console.log(editingExpense);
   };
 
   const handleDelete = (id) => {
     const newExpenseData = expenseData.filter((expense) => expense.id !== id);
     setExpenseData(newExpenseData);
   };
-  console.log(query);
 
   const search = (query) => {
     query = query.toLowerCase();
@@ -72,7 +82,7 @@ export default function List() {
     return data.map((expense) => (
       <div
         key={expense.id}
-        className="grid grid-cols-[2fr_1fr_1fr_1fr_0.6fr] text-white font-medium py-2 overflow-y-auto max-h-100"
+        className="grid md:grid-cols-[2fr_1fr_1fr_1fr_0.6fr] grid-cols-[1fr_0.5fr_0.5fr_0.5fr_0.3fr]  text-white font-medium py-2 overflow-y-auto max-h-100"
       >
         <div className="flex gap-2 items-center capitalize">
           <div className="bg-red-500/50 border border-red-500 h-8 rounded-full w-8 flex items-center justify-center p-4 text-xl ">
@@ -96,8 +106,17 @@ export default function List() {
       </div>
     ));
   };
+
   return (
     <>
+      {editingExpense && (
+        <div className="fixed inset-0 z-40 flex items-center justify-center pt-10 lg:px-90 px-20 bg-red-400/50 h-full ">
+          <EditingForm
+            editingExpense={editingExpense}
+            setEditingExpense={setEditingExpense}
+          />
+        </div>
+      )}
       {/* search and filter */}
       <div className="md:grid grid-cols-1 md:grid-cols-3 gap-3">
         <div className="flex items-center outline-2 bg-[#0B0B0E] outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-3  overflow-hidden">
