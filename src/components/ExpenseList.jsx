@@ -1,10 +1,6 @@
-
-import Search from "./Search";
+import Search from "./SearchAndFilter";
 import List from "./List";
 export default function ExpenseList() {
-
-
-
   return (
     <>
       <div className=" px-8 py-5 md:w-3/5  bg-[#14141A] rounded-4xl border border-gray-800">
@@ -13,8 +9,7 @@ export default function ExpenseList() {
         </h1>
 
         <Search />
-
-        <List/>
+        <List />
       </div>
     </>
   );

@@ -61,7 +61,7 @@ export default function ExpenseForm() {
           DESCRIPTION
         </label>
         <textarea
-          className="outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4"
+          className="outline-2 outline-gray-800 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 overflow-hidden"
           name="description"
           value={expense.description}
           placeholder="What Did You Spend On?"

@@ -6,7 +6,6 @@ import { ExpenseDataContext } from "../context/ExpenseDataContext";
 
 export default function Overview() {
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
-  console.log(expenseData);
 
   return (
     <>
