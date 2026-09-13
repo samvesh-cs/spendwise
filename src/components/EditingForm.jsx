@@ -117,6 +117,7 @@ export default function EditingForm({ editingExpense, setEditingExpense }) {
             </label>
             <select
               required
+              name="payment"
              className=" outline-2 dark:bg-[#0B0B0E] dark:outline-gray-800 outline-gray-400 text-red-400 focus:outline-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none"
               value={editingExpense.payment}
               onChange={(e) => handleChange(e)}

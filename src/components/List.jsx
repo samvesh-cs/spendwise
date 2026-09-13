@@ -39,7 +39,7 @@ export default function List() {
   };
 
   const handleEdit = (id) => {
-    expenseData.map((expense) => {
+    expenseData.forEach((expense) => {
       if (expense.id == id) {
         console.log(id);
         setEditingExpense({
@@ -132,8 +132,7 @@ export default function List() {
         </div>
 
         <select
-          className=" dark:bg-[#0B0B0E]
-           text-red-400  h-10 px-4 py-2 rounded-full mb-4 appearance-none outline-none border-2 dark:border-gray-800"
+          className="  text-red-400 h-10 px-4 py-2 rounded-full mb-4 appearance-none outline-none border-2 border-gray-400 dark:bg-[#0B0B0E] dark:border-gray-800"
           name="category"
           onChange={(e) => setQuery(e.target.value)}
           required
@@ -160,7 +159,7 @@ export default function List() {
       <div>
         <ListHeader />
         <div className="border-t-2 border-gray-400/10"></div>
-        <div className="h-80 overflow-y-auto">
+        <div className="overflow-y-auto scrollbar-none h-80">
           <ListRows data={search(query)} />
         </div>
       </div>

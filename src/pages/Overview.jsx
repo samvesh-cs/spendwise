@@ -20,12 +20,16 @@ export default function Overview() {
   const currentMonthSpending = () => {
     let total = 0;
     const currentMonth = new Date().getMonth() + 1;
-    console.log(currentMonth);
+    const currentYear = new Date().getFullYear();
+
 
     const currentMonthExpenses = expenseData.filter((expense) => {
       const dateArray = expense.date.split("-");
       const expenseMonth = Number(dateArray[1]);
-      return expenseMonth === currentMonth;
+      const expenseYear = Number(dateArray[0]);
+      
+      
+      return expenseYear == currentYear && expenseMonth === currentMonth ;
     });
     if (currentMonthExpenses.length == 0) {
       return "₹" + 0;

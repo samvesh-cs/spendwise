@@ -29,7 +29,7 @@ export default function ExpenseForm() {
 
   console.log(expense);
   return (
-    <div className="grid grid-cols-1  px-8 py-5 md:w-2/5 rounded-4xl dark:bg-[#14141A] dark:border-gray-800 bg-[#FFFFFF] border border-gray-200 grow">
+    <div className="grid grid-cols-1  px-8 py-5 md:w-2/5 rounded-4xl dark:bg-[#14141A] dark:border-gray-800 bg-[#FFFFFF] border border-gray-200 grow shadow-md">
       <form
         className="flex flex-col w-full"
         onSubmit={(e) => {
@@ -139,7 +139,7 @@ export default function ExpenseForm() {
 
         <button
           type="submit"
-          className="border border-gray-500 dark:border-gray-800 bg-red-500 hover:bg-red-500/80 text-white font-semibold outline-none h-12 px-4 py-2 rounded-full mt-4 transition-all duration-200"
+          className="border border-gray-400 dark:border-gray-800 bg-red-500 hover:bg-red-500/80 text-white font-semibold outline-none h-12 px-4 py-2 rounded-full mt-4 transition-all duration-200"
         >
           <i className="ri-add-fill text-xl"></i> ADD EXPENSE
         </button>

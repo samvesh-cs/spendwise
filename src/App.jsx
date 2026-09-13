@@ -7,7 +7,7 @@ import Transactions from "./pages/Transactions";
 import { ThemeContext } from "./context/ThemeContext";
 
 export default function App() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const html = document.querySelector("html");
