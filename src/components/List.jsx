@@ -80,10 +80,9 @@ export default function List({ data }) {
           </div>
           <div className="flex flex-col">
             <h1 className="font-bold text-xl">{expense.description}</h1>
-            <div className="flex gap-2">
-              <p>{expense.category}</p>
-              <p>{formatExpenseDate(expense.date)}</p>
-            </div>
+         
+              <p className="flex gap-2">{expense.category} {formatExpenseDate(expense.date)}</p>
+          
           </div>
         </section>
         <section className="flex items-center">
@@ -99,7 +98,7 @@ export default function List({ data }) {
   };
 
   return (
-    <>
+    <div>
       {editingExpense && (
         <div className="fixed inset-0 z-40 flex items-center justify-center pt-10 lg:px-90 px-20 bg-red-400/50 h-full ">
           <EditingForm
@@ -110,6 +109,6 @@ export default function List({ data }) {
       )}
 
       <ListRows data={data} />
-    </>
+    </div>
   );
 }

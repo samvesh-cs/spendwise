@@ -52,7 +52,12 @@ export default function Overview() {
       </div>
       <div className="flex gap-6 mt-5 md:flex-row flex-col   ">
         <ExpenseForm />
-        <ExpenseList />
+        <div className="px-4 py-4 md:px-8 md:py-5  rounded-4xl  dark:bg-[#14141A] dark:border-gray-800 bg-[#FFFFFF] border border-gray-200 shadow-md  h-120 overflow-y-auto scrollbar-none">
+          <h1 className="text-4xl font-bold mb-3 dark:text-white text-[#18181B] ">
+            Recent <span className="text-red-500">Expenses</span>
+          </h1>
+          <ExpenseList />
+        </div>
       </div>
     </div>
   );
