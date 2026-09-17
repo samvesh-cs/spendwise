@@ -42,42 +42,6 @@ SpendWise allows users to add, edit, delete, search, and filter expenses through
 - Tailwind CSS
 - React Router
 
-## Project Structure
-
-```text
-expense-tracker/
-├── node_modules/
-├── src/
-│   ├── components/
-│   │   ├── EditingForm.jsx
-│   │   ├── ExpenseForm.jsx
-│   │   ├── ExpenseList.jsx
-│   │   ├── List.jsx
-│   │   ├── NavigationBar.jsx
-│   │   └── SummaryCard.jsx
-│   │
-│   ├── context/
-│   │   ├── ExpenseDataContext.jsx
-│   │   └── ThemeContext.jsx
-│   │
-│   ├── pages/
-│   │   ├── AddExpense.jsx
-│   │   ├── Overview.jsx
-│   │   └── Transactions.jsx
-│   │
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-│
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── README.md
-└── vite.config.js
-```
-
 ## Getting Started
 
 ### Clone the repository
