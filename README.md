@@ -25,7 +25,7 @@ SpendWise allows users to add, edit, delete, search, and filter expenses through
 
 ### Overview
 
-![SpendWise Overview](./screenshots/overview.png)
+![SpendWise Overview](./screenshots/overview-page.png)
 
 ### Transactions
 
