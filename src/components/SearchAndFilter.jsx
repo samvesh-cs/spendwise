@@ -4,11 +4,8 @@ import { ExpenseDataContext } from "../context/ExpenseDataContext";
 export default function SearchAndFilter({ setFilteredExpense }) {
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
   const [query, setQuery] = useState("");
-  console.log(query);
-
+  
   useEffect(() => {
-    console.log("HEllo");
-
     if (query === "") {
       setFilteredExpense(expenseData);
       return;
