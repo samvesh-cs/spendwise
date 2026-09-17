@@ -17,8 +17,6 @@ export default function ExpenseForm() {
     const newExpense = { ...expense, [name]: value };
     setExpense(newExpense);
   }
-console.log(expense);
-console.log(expenseData);
 
   function handleSubmit(e) {
     e.preventDefault();

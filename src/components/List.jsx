@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { ExpenseDataContext } from "../context/ExpenseDataContext";
 import EditingForm from "./EditingForm";
+import NoExpense from "./NoExpense";
 
 export default function List({ data }) {
-  console.log(data);
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
   const [editingExpense, setEditingExpense] = useState(null);
 
@@ -37,13 +37,13 @@ export default function List({ data }) {
     setExpenseData(newExpenseData);
   };
 
-  const ActionButtons = () => {
+  const ActionButtons = ({ id }) => {
     return (
-      <div className="flex gap-3  text-black dark:text-white text-2xl">
-        <button onClick={() => handleEdit(expense.id)}>
+      <div className="md:rounded-r-[30px] md:rounded-l-xl rounded-2xl p-2 border bg-red-600/20 border-red-500 dark:bg-red-500/30 dark:border-red-500 flex gap-3 text-black dark:text-white text-2xl">
+        <button onClick={() => handleEdit(id)}>
           <i className="ri-pencil-fill "></i>
         </button>
-        <button onClick={() => handleDelete(expense.id)}>
+        <button onClick={() => handleDelete(id)}>
           <i className="ri-delete-bin-5-line"></i>
         </button>
       </div>
@@ -52,13 +52,7 @@ export default function List({ data }) {
 
   const ListRows = ({ data }) => {
     if (data.length === 0) {
-      return (
-        <div className="flex justify-center items-center mt-25 dark: ">
-          <h1 className="text-4xl font-semibold dark:text-gray-500">
-            No Expenses
-          </h1>
-        </div>
-      );
+      return <NoExpense />;
     }
     const formatExpenseDate = (date) => {
       const formattedDate = new Date(date);
@@ -79,19 +73,20 @@ export default function List({ data }) {
             {Icon(expense.category)}
           </div>
           <div className="flex flex-col">
-            <h1 className="font-bold text-xl">{expense.description}</h1>
-         
-              <p className="flex gap-2">{expense.category} {formatExpenseDate(expense.date)}</p>
-          
+            <h1 className="font-bold text-xl capitalize">
+              {expense.description}
+            </h1>
+
+            <p className="flex gap-2">
+              {expense.category} {formatExpenseDate(expense.date)}
+            </p>
           </div>
         </section>
         <section className="flex items-center">
           <p className=" mr-auto md:mr-4 text-2xl md:text-xl font-bold text-red-500 ">
             ₹{expense.amount.toLocaleString()}
           </p>
-          <div className="md:rounded-r-[30px] md:rounded-l-xl rounded-2xl p-2 border bg-red-600/20 border-red-500 dark:bg-red-500/30 dark:border-red-500">
-            <ActionButtons />
-          </div>
+          <ActionButtons id={expense.id} />
         </section>
       </div>
     ));
