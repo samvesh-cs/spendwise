@@ -10,6 +10,7 @@ export default function NavigationBar() {
   };
 
   const SetThemeButton = () => {
+    
     return (
       <button
         className="text-red-500 hover:scale-110  transition  duration-200"
@@ -25,7 +26,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <nav className=" dark:bg-[#171117] w-full bg-[#FFFFFF] dark:text-white flex justify-between px-8 py-3  items-center mb-5 border-b dark:border-gray-800 border-gray-200 fixed top-0 z-50">
+    <nav className=" dark:bg-[#171117] w-full bg-[#FFFFFF] dark:text-white flex justify-between px-8 py-3  items-center border-b dark:border-gray-800 border-gray-200 relative top-0 z-50 ">
       <div>
         <h1 className="font-bold text-2xl flex  ">
           <div className="dark:bg-red-500 bg-red-500 px-2 aspect-sqaure rounded-full flex items-center justify-center p-1 mr-1 shadow-md ">
@@ -35,10 +36,16 @@ export default function NavigationBar() {
         </h1>
       </div>
 
-      <div className="md:flex gap-10 text-lg font-medium hidden">
+      <div className="md:flex gap-10 text-lg font-medium hidden absolute top-[50%] left-[50%] transform translate-[-50%]">
         <Link
           className="rounded-full px-4 py-1 border border-transparent hover:bg-red-600/20 hover:scale-105 hover:border-red-500 dark:hover:bg-red-500/30 dark:hover:border-red-500  transition  duration-150 hover:shadow-md hover:shadow-red-600/30"
           to="/"
+        >
+          <h1>Home</h1>
+        </Link>
+        <Link
+          className="rounded-full px-4 py-1 border border-transparent hover:bg-red-600/20 hover:scale-105 hover:border-red-500 dark:hover:bg-red-500/30 dark:hover:border-red-500  transition  duration-150 hover:shadow-md hover:shadow-red-600/30"
+          to="/overview"
         >
           <h1>Overview</h1>
         </Link>
@@ -57,8 +64,8 @@ export default function NavigationBar() {
           <h1>Transactions</h1>
         </Link>
 
-        <SetThemeButton />
       </div>
+        <SetThemeButton />
     </nav>
   );
 }

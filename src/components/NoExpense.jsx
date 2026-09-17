@@ -12,7 +12,7 @@ export default function NoExpense() {
       <Link to="/addexpense"      >
         <button
           type="submit"
-          className="border border-gray-400 dark:border-gray-800 bg-red-500 hover:bg-red-500/80 text-white font-semibold outline-none h-12 px-4 py-2 rounded-full mt-4 transition-all duration-200"
+          className="bg-red-500 hover:bg-red-500/80 text-white font-semibold outline-none h-12 px-4 py-2 rounded-full mt-4 transition-all duration-200"
         >
           <i className="ri-add-fill text-xl"></i> ADD EXPENSE
         </button>

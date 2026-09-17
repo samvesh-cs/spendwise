@@ -5,6 +5,8 @@ import Overview from "./pages/Overview";
 import AddExpense from "./pages/AddExpense";
 import Transactions from "./pages/Transactions";
 import { ThemeContext } from "./context/ThemeContext";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 export default function App() {
   const { theme } = useContext(ThemeContext);
@@ -21,11 +23,15 @@ export default function App() {
   }, [theme]);
 
   return (
-    <div className="w-full h-screen dark:bg-[#0B0B0E] bg-[#F5F5F7]">
-      <NavigationBar />
-      <main className="px-4 md:px-8 pt-20">
+    <div className="w-full min-h-screen flex flex-col dark:bg-[#0B0B0E] bg-[#F5F5F7]">
+      <header>
+        <NavigationBar />
+      </header>
+
+      <main className="flex-1">
         <Routes>
-          <Route path="/" element={<Overview />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/overview" element={<Overview />} />
           <Route path="/addexpense" element={<AddExpense />} />
           <Route path="/transactions" element={<Transactions />} />
         </Routes>
