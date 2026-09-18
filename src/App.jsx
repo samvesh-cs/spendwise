@@ -1,15 +1,14 @@
 import { Route, Routes } from "react-router";
 import { useContext, useEffect } from "react";
+import { OtherContext } from "./context/OtherContext";
 import NavigationBar from "./components/NavigationBar";
 import Overview from "./pages/Overview";
 import AddExpense from "./pages/AddExpense";
 import Transactions from "./pages/Transactions";
-import { ThemeContext } from "./context/ThemeContext";
 import Home from "./pages/Home";
-import Footer from "./components/Footer";
 
 export default function App() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(OtherContext);
 
   useEffect(() => {
     const html = document.querySelector("html");

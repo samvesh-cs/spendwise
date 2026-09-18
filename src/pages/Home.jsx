@@ -1,7 +1,5 @@
-import React from "react";
-import ExpenseList from "../components/ExpenseList";
-import Footer from "../components/Footer";
 import { Link } from "react-router";
+
 function Home() {
   return (
     <div className=" bg-[#F5F5F7] dark:bg-[#0B0B0E]">

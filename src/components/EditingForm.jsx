@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ExpenseDataContext } from "../context/ExpenseDataContext";
+
 export default function EditingForm({ editingExpense, setEditingExpense }) {
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
 

@@ -41,7 +41,7 @@ export default function Overview() {
   };
 
   return (
-    <div className="px-8 mt-6">
+    <div className="px-8 relative mt-6">
       <div className="grid md:grid-cols-3 gap-6">
         <SummaryCard text={"TOTAL SPENDING"} info={totalSpending()} />
         <SummaryCard

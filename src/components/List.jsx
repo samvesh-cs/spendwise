@@ -1,11 +1,14 @@
 import { useContext, useState } from "react";
 import { ExpenseDataContext } from "../context/ExpenseDataContext";
+import { OtherContext } from "../context/OtherContext";
 import EditingForm from "./EditingForm";
 import NoExpense from "./NoExpense";
+import ToastDelete from "./ToastDelete";
 
 export default function List({ data }) {
   const { expenseData, setExpenseData } = useContext(ExpenseDataContext);
   const [editingExpense, setEditingExpense] = useState(null);
+  const { toastType, setToastType } = useContext(OtherContext);
 
   const Icon = (category) => {
     category = category.toLowerCase();
@@ -35,6 +38,10 @@ export default function List({ data }) {
   const handleDelete = (id) => {
     const newExpenseData = expenseData.filter((expense) => expense.id !== id);
     setExpenseData(newExpenseData);
+    setToastType("delete");
+    setTimeout(() => {
+      setToastType(null);
+    }, 3000);
   };
 
   const ActionButtons = ({ id }) => {
@@ -94,6 +101,13 @@ export default function List({ data }) {
 
   return (
     <div>
+      {toastType === "delete" && (
+        <ToastDelete
+          onClose={() => {
+            setToastType(null);
+          }}
+        />
+      )}
       {editingExpense && (
         <div className="fixed inset-0 z-40 flex items-center justify-center pt-10 lg:px-90 px-20 bg-red-400/50 h-full ">
           <EditingForm

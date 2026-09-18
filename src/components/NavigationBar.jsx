@@ -1,16 +1,15 @@
 import { useContext } from "react";
 import { Link } from "react-router";
-import { ThemeContext } from "../context/ThemeContext";
+import { OtherContext } from "../context/OtherContext";
 
 export default function NavigationBar() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(OtherContext);
 
   const handleChangeTheme = () => {
     theme == "dark" ? setTheme("light") : setTheme("dark");
   };
 
   const SetThemeButton = () => {
-    
     return (
       <button
         className="text-red-500 hover:scale-110  transition  duration-200"
@@ -63,9 +62,8 @@ export default function NavigationBar() {
           {" "}
           <h1>Transactions</h1>
         </Link>
-
       </div>
-        <SetThemeButton />
+      <SetThemeButton />
     </nav>
   );
 }
