@@ -47,7 +47,7 @@ SpendWise allows users to add, edit, delete, search, and filter expenses through
 ### Clone the repository
 
 ```bash
-git clone (https://github.com/samvesh-cs/spendwise)
+git clone https://github.com/samvesh-cs/spendwise
 ```
 
 ### Install dependencies
