@@ -70,7 +70,7 @@ export default function List({ data }) {
       });
     };
 
-    return data.map((expense) => (
+    return data.toReversed().map((expense) => (
       <div
         key={expense.id}
         className="text-black dark:text-white dark:bg-[#0B0B0E] bg-[#F5F5F7] p-3  md:flex items-center justify-between rounded-2xl md:rounded-full mb-3 shadow-md"
